@@ -68,4 +68,71 @@ fn main() {
             println!("!0 only loop: {}", x);
         }
     }
+
+    // playin around with data types
+    let x: u32 = 5;
+    let y: i32 = -5;
+
+    println!("u32 cant assigned int really");
+    println!("x: {}", x);
+    println!("y: {}", y);
+
+    let floaten: f32 = 10.32;
+    println!("{}", floaten);
+
+    let mut bul: bool = true;
+    println!("{}", bul);
+
+    // tuple -> kinda like object
+    let text: String = "hello".to_string();
+
+    let mut tup: (i32, f64, u8, String) = (500, 6.4, 1, text);
+    // change the value of the tuple
+    tup.3 = "this is a string".to_string();
+    println!("{}", tup.3);
+
+    let arr: [i32; 4] = [1, 2, 3, 4];
+    // loop arr and print each value
+    for x in arr.iter() {
+        println!("arr in LOOP {}", x);
+    }
+
+    // array of tuple
+    let mut arr2: [(&str, i32); 4] = [("hello", 1), ("world", 2), ("!", 3), ("!", 4)];
+    println!("{}", arr2[0].0);
+    println!("{}", arr2[0].1);
+
+    // mutate arr2
+    arr2[0].1 = 5;
+    println!("{}", arr2[0].1);
+    arr2[0].0 = "hello world";
+    println!("{}", arr2[0].0);
+
+    // create a struct
+    struct User {
+        username: String,
+        email: String,
+        sign_in_count: u64,
+        active: bool,
+    }
+
+    // create a new instance of the struct
+    let mut user1 = User {
+        username: "USE".to_string(),
+        email: "EM".to_string(),
+        sign_in_count: 1,
+        active: true,
+    };
+
+    // change the value of the struct
+    user1.username = "hello".to_string();
+    user1.email = "world".to_string();
+    user1.sign_in_count = 2;
+    user1.active = false;
+
+    // print the value of the struct
+    println!("username: {}", user1.username);
+    println!("email: {}", user1.email);
+    println!("sign_in_count: {}", user1.sign_in_count);
+    println!("active: {}", user1.active);
 }
