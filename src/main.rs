@@ -1,4 +1,5 @@
 use std::io;
+use std::fmt;
 
 fn main() {
     const MAX_POINTS: i64 = 100_000;
@@ -280,6 +281,14 @@ fn main() {
     let res = is_divisible_by_2(10, 2);
 
     println!("{}", res);
+
+    let pay = build_user("John@gmail.com".to_string(), "Doe".to_string());
+
+    println!("{}", pay);
+
+    let finals = payload_me();
+
+    println!("{}", finals);
 }
 
 fn outside_callme_daddy(message: &str) {
@@ -295,3 +304,70 @@ fn is_divisible_by_2(x: u8, y: u8) -> bool {
         return false;
     }
 }
+
+struct User {
+    username: String,
+    email: String,
+    sign_in_count: u64,
+    active: bool,
+}
+
+// implement std::fmt::Display for User
+impl fmt::Display for User {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(
+            f,
+            "Username: {}\nEmail: {}\nSign in count: {}\nActive: {}",
+            self.username, self.email, self.sign_in_count, self.active
+        )
+    }
+}
+
+fn build_user(email: String, username: String) -> User {
+    return User {
+        email,
+        username,
+        sign_in_count: 1,
+        active: true,
+    };
+}
+
+// create a new instance of the struct
+fn payload_me() -> User {
+    let mut user1 = User {
+        username: "USE".to_string(),
+        email: "EM".to_string(),
+        sign_in_count: 1,
+        active: true,
+    };
+
+    // change the value of the struct
+    user1.username = "mutated_usernamezz123".to_string();
+    user1.email = "mutated_email@asdasdasdasd".to_string();
+    user1.sign_in_count = 2;
+    user1.active = false;
+
+    return user1;
+}
+
+// Memory Management, Heap & Stack
+// fn mem_management() {
+//     // ownership in rust
+//     let s = String::from("hello");
+//     let s2 = s;
+//     // s2 = String::from("world"); // error - cannot assign to s2 because it is a constant
+//     println!("{}", s2);
+//     // s = String::from("world"); // error - cannot assign to s because it is a constant
+//     println!("{}", s);
+
+//     // heap memory
+//     let s = String::from("hello");
+//     let s2 = s.clone();
+//     println!("{}", s2);
+//     println!("{}", s);
+
+//     // stack memory
+//     let x = 5;
+//     let y = x;
+//     println!("{}", x);
+// }
