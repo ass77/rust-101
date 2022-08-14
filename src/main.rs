@@ -149,4 +149,43 @@ fn main() {
     }
 
     println!("Hello {}", input.trim());
+
+
+    // arimethic and type casting - conversion...
+
+    // 2^8 = 256 -> u8
+    // 2^16 = 65536 -> u16
+    // 2^32 = 4294967296 -> u32
+    // 2^64 = 18446744073709551616 -> u64
+    // 2^128 = 340282366920938463463374607431768211456 -> u128
+    // unsigned 8 bit integer -> non-negative 8 bit integer
+    let x: u128 = 255;
+    // signed 8 bit integer -> negative 8 bit integer
+    let y: u128 = 1;
+
+    // x+y
+    println!("{}", x + y);
+    // floating point value
+    let x: f64 = 100.0;
+    let y: u8 = 2;
+
+    // x/y
+    let z: f64 = x / y as f64;
+    println!("{}", z);
+    
+    let max = i32::max_value();
+
+    println!("{}", max);
+
+
+    // convert string into int
+    let mut input = String::new();
+    println!("Please enter a number: ");
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read line");
+    
+    let int_inputz: i32 = input.trim().parse().unwrap();
+    println!("You typed: {}", int_inputz);
+
 }
