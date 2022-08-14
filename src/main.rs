@@ -227,4 +227,71 @@ fn main() {
         }
         println!("|| conditions {}", x);
     }
+
+    // Functions, Expressions & Statements
+
+    // functions
+    fn hello_world() {
+        println!("Hello World");
+    }
+
+    // call the function
+    hello_world();
+
+    // functions with arguments
+    fn hello_world_with_arg(name: &str) {
+        println!("Hello {}", name);
+    }
+
+    hello_world_with_arg("World");
+
+    // functions with return values
+    fn hello_world_with_return() -> String {
+        return String::from("Hello World");
+    }
+
+    println!("{}", hello_world_with_return());
+
+    // functions with return values and arguments
+    fn hello_world_with_return_and_arg(name: &str) -> String {
+        return format!("Hello {}", name);
+    }
+
+    println!("{}", hello_world_with_return_and_arg("World"));
+
+    // functions with return values and arguments and default values
+    fn hello_world_with_return_and_arg_and_default(name: String, age: u8) -> String {
+        return format!("Hello {} and you are {} years old", name, age);
+    }
+
+    println!(
+        "{}",
+        hello_world_with_return_and_arg_and_default("Dog".to_string(), 30)
+    );
+
+    fn add_positive_numbers_only(x: u8, y: u8) -> u8 {
+        return x + y;
+    }
+
+    println!("{}", add_positive_numbers_only(1, 2));
+
+    outside_callme_daddy("DONT CALL ME DADDY");
+
+    let res = is_divisible_by_2(10, 2);
+
+    println!("{}", res);
+}
+
+fn outside_callme_daddy(message: &str) {
+    println!("Called from outside {}", message);
+}
+
+fn is_divisible_by_2(x: u8, y: u8) -> bool {
+    let ah = x / y;
+
+    if ah % 2 == 0 {
+        return true;
+    } else {
+        return false;
+    }
 }
