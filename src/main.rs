@@ -1,3 +1,5 @@
+use std::io;
+
 fn main() {
     const MAX_POINTS: i64 = 100_000;
     let hehe: i64 = MAX_POINTS.pow(2);
@@ -135,4 +137,16 @@ fn main() {
     println!("email: {}", user1.email);
     println!("sign_in_count: {}", user1.sign_in_count);
     println!("active: {}", user1.active);
+
+    // console input...
+    let mut input = String::new();
+    // loop until input is not empty
+    while input.trim().len() == 0 {
+        println!("Please enter your name: ");
+        io::stdin()
+            .read_line(&mut input)
+            .expect("Failed to read line");
+    }
+
+    println!("Hello {}", input.trim());
 }
