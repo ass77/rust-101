@@ -150,7 +150,6 @@ fn main() {
 
     println!("Hello {}", input.trim());
 
-
     // arimethic and type casting - conversion...
 
     // 2^8 = 256 -> u8
@@ -172,11 +171,10 @@ fn main() {
     // x/y
     let z: f64 = x / y as f64;
     println!("{}", z);
-    
+
     let max = i32::max_value();
 
     println!("{}", max);
-
 
     // convert string into int
     let mut input = String::new();
@@ -184,8 +182,49 @@ fn main() {
     io::stdin()
         .read_line(&mut input)
         .expect("Failed to read line");
-    
+
     let int_inputz: i32 = input.trim().parse().unwrap();
     println!("You typed: {}", int_inputz);
 
+    // conditions and control flow
+
+    let mut x = String::new();
+    println!("Please enter first number: ");
+    io::stdin().read_line(&mut x).expect("Failed to read line");
+
+    let int_inputz: i32 = x.trim().parse().unwrap();
+
+    let mut y = String::new();
+    println!("Please enter second number: ");
+    io::stdin().read_line(&mut y).expect("Failed to read line");
+
+    let int_inputz2: i32 = y.trim().parse().unwrap();
+
+    if int_inputz == int_inputz2 {
+        println!("x is equal to y");
+    } else if int_inputz < int_inputz2 {
+        println!("x is less than y");
+    } else {
+        println!("x is greater than y");
+    }
+
+    // looping with && conditions
+    let mut x = 1;
+    while x < 10 {
+        x += 1;
+        if x % 2 == 0 {
+            continue;
+        }
+        println!("&& condition {}", x);
+    }
+
+    // looping with || conditions
+    let mut x = 1;
+    while x < 10 {
+        x += 1;
+        if x % 2 == 0 || x % 3 == 0 {
+            continue;
+        }
+        println!("|| conditions {}", x);
+    }
 }
